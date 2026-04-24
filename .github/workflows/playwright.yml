@@ -1,0 +1,79 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        level: [level1, level2, level3, level4, level5, level6, level7, level9, level10]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Level ${{ matrix.level }} tests
+        run: npx playwright test tests/${{ matrix.level }} --project=chromium
+        env:
+          CI: true
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ matrix.level }}
+          path: playwright-report/
+          retention-days: 30
+
+  full-run:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run all tests (multi-browser)
+        run: npx playwright test --project=chromium --project=firefox
+        env:
+          CI: true
+
+      - name: Upload full report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-full-report
+          path: playwright-report/
+          retention-days: 30

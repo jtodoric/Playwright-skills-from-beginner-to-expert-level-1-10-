@@ -1,0 +1,25 @@
+{
+  "name": "playwright-portfolio",
+  "version": "1.0.0",
+  "description": "Playwright test automation portfolio - Levels 1 to 10",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:ui": "npx playwright test --ui",
+    "test:report": "npx playwright show-report",
+    "test:level1": "npx playwright test tests/level1",
+    "test:level2": "npx playwright test tests/level2",
+    "test:level3": "npx playwright test tests/level3",
+    "test:level4": "npx playwright test tests/level4",
+    "test:level5": "npx playwright test tests/level5",
+    "test:level6": "npx playwright test tests/level6",
+    "test:level7": "npx playwright test tests/level7",
+    "test:level8": "npx playwright test tests/level8",
+    "test:level9": "npx playwright test tests/level9",
+    "test:level10": "npx playwright test tests/level10"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "dotenv": "^16.4.5"
+  }
+}
