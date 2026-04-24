@@ -23,9 +23,9 @@ playwright-portfolio/
     ├── level5/  🟠 Fixtures & Test Hooks
     ├── level6/  🔴 API Testing & Network Interception
     ├── level7/  🔴 Advanced Interactions (drag, upload, iframes, dialogs)
-    ├── level8/  🔴 Visual Testing & Accessibility
-    ├── level9/  🔴 Data-Driven Tests & Parallel Execution
-    └── level10/ ⚫ Full E2E Framework (auth reuse, performance, security)
+    ├── level8/  🔴 Visual Testing & Accessibility  --> in progress
+    ├── level9/  🔴 Data-Driven Tests & Parallel Execution  --> in progress
+    └── level10/ ⚫ Full E2E Framework (auth reuse, performance, security) --> in progress
 ```
 
 ---
@@ -169,7 +169,7 @@ npm test && npm run test:report
 
 ---
 
-### 🔴 Level 8 — Visual Testing & Accessibility
+### 🔴 Level 8 — Visual Testing & Accessibility  --> in progress
 **File:** `tests/level8/visual-and-accessibility.spec.js`
 
 | Concept | Description |
@@ -183,7 +183,7 @@ npm test && npm run test:report
 
 ---
 
-### 🔴 Level 9 — Data-Driven & Parallel Tests
+### 🔴 Level 9 — Data-Driven & Parallel Tests  --> in progress
 **File:** `tests/level9/data-driven-parallel.spec.js`
 
 | Concept | Description |
@@ -197,7 +197,7 @@ npm test && npm run test:report
 
 ---
 
-### ⚫ Level 10 — Full E2E Framework
+### ⚫ Level 10 — Full E2E Framework  --> in progress
 **File:** `tests/level10/full-e2e-framework.spec.js`
 
 | Concept | Description |
